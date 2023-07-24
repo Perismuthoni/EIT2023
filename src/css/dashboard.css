@@ -1,0 +1,132 @@
+
+.dashboard{
+    height: max-content;
+    min-height: 1500px;
+
+}
+.container-dashboard{
+    height: fit-content;
+}
+.profile-container{
+    display: flex;
+    max-height: 100px;
+    max-width: 100%;
+}
+
+
+.column-profile {
+    position: relative;
+    flex: 1;
+    align-items: center;
+    padding: 1px;
+    background-color: inherit;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+    max-height: inherit;
+}
+
+
+.profile-image {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+.profile-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.profile-info {
+    margin-left: 10px;
+}
+
+.profile-info h2 {
+}
+
+
+.column-account {
+    position: relative;
+    flex: 1;
+    align-items: center;
+    padding: 5px;
+    background-color: inherit;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+
+.container-dashboard{
+    display: flex;
+    max-height: 100px;
+    max-width: 100%;
+}
+
+
+.column-details {
+    position: relative;
+    flex: 1;
+    align-items: center;
+    padding: 5px;
+    background-color: inherit;
+}
+.column-action {
+    position: relative;
+    flex: 1;
+    align-items: center;
+    padding: 5px;
+}
+
+.ticketviewer{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 75%;
+    height: 80%;
+    background-color: darkgoldenrod;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    margin: 5%;
+}
+.ticket-form{
+    position: relative;
+    padding: 10px;
+    background-color: darkgoldenrod;
+    overflow: scroll;
+    z-index: 5;
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.3);
+}
+
+.submitbutton{
+    max-width: 200px;
+}
+.billviewer{
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    background-color: darkgoldenrod;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 80%;
+    height: 80%;
+    margin: 10%;
+    margin-top: 5%;
+
+}
+.billviewer button{
+    width: 200px;
+}
+.bill-form{
+    background-color: #aaaaaa;
+    width: 95%;
+    height: 95%;
+    margin: 2%;
+    padding: 10px;
+}
+
+

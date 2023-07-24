@@ -1,0 +1,14 @@
+.header img{
+    width: 100%;
+    height: auto;
+}
+
+.header-line {
+
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 2px solid darkgoldenrod;
+    margin: 1em 0;
+    padding: 0;
+}

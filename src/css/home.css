@@ -1,0 +1,157 @@
+/* CSS for CustomerPortalHomePage */
+.container-home {
+    display: flex;
+    width: 100%;
+}
+.container  a {
+    color: black;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+.container  a:hover {
+    color: darkgoldenrod;
+}
+
+
+.column {
+    flex-basis: 50%;
+    padding: 20px;
+    min-height: 400px;
+}
+
+/* Styling for Customer Access section */
+
+.header{
+    color: midnightblue;
+}
+.header-text{
+    height: 0px;
+}
+
+/* Additional styling as needed */
+.navbar {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+
+}
+.nav-list {
+    display: flex;
+    list-style: none;
+    margin-right: 10px;
+}
+
+.nav-list li {
+    margin-right: 50px; /* Add spacing between navigation items */
+    font-weight: bold;
+
+}
+.nav-list li a {
+    color: black;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+.nav-list li a:hover {
+    color: darkgoldenrod;
+}
+.nav-list li:hover .dropdown-menu {
+    display: block;
+}
+.dropdown-menu {
+    display: none;
+    list-style: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    padding: 12px 16px;
+    z-index: 1;
+}
+.dropdown-menu li {
+    margin-bottom: 30px; /* Add spacing between navigation items */
+    font-weight: lighter;
+}
+
+
+
+.highlight {
+    font-weight: normal;
+    font-size: smaller;
+}
+
+.customer-section {
+    background-color: #f2f2f2;
+
+}
+
+.row {
+    display: flex;
+}
+
+.column-left {
+    flex-basis: 10%;
+    padding-right: 1px;
+}
+
+.column-right {
+    flex-basis: 90%;
+}
+
+.column-right img {
+    width: 100%;
+    height: auto;
+}
+.icon-container {
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.icon-container img {
+    width: 100%;
+    height: auto;
+}
+
+
+/* Styling for Non-Customer Access section */
+.non-customer-section {
+    background-color: #e9e9e9;
+}
+
+.pdf-viewer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 95%;
+    height: 90%;
+    background-color: darkgoldenrod;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    margin: 2%;
+}
+
+.pdf-viewer button {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+}
+.ticket-viewer{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: inherit;
+    height: inherit;
+    background-color: darkgoldenrod;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    margin-left: 10%;
+    margin-right: 10%;
+}
