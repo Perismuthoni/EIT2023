@@ -60,8 +60,10 @@ function HelloWorld() {
           <li>MEST CLASS OF 2023</li>
         </ul>
         <div className="search-bar">
-          <input type="text" placeholder="Search..." />
-          <button type="button">Search</button>
+          <input type="text" placeholder="Search..." value={inputValue}
+              onChange={handleInputChange} />
+          <button  type="submit"
+              onClick={handlesearch}>Search</button>
         </div>
       </nav>
 
@@ -80,24 +82,7 @@ function HelloWorld() {
       </div>
 
       <div>
-        <div>
-          <span>
-            <input
-              className="searchinput"
-              type="text"
-              placeholder="eg peris"
-              value={inputValue}
-              onChange={handleInputChange}
-            />
-            <button
-              className="searchbutton"
-              type="submit"
-              onClick={handlesearch}
-            >
-              Search
-            </button>
-          </span>
-        </div>
+    
 
         {UserDataIsVisible && (
           <div>
