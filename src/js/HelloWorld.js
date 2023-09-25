@@ -44,30 +44,34 @@ function HelloWorld() {
     }
   };
 
-
   const handleUserClick = (user) => {
     setUserDataIsVisible(true);
-      setSelectedUser(user);
+    setSelectedUser(user);
   };
-  
 
   return (
     <div>
-       <nav className="navbar">
-      <div className="nav-logo"> <img className="logo" src={mest_logo} alt="logo" /></div>
-      <ul className="nav-links">
-        <li>MEST CLASS OF 2023</li>
-      </ul>
-      <div className="search-bar">
-        <input type="text" placeholder="Search..." />
-        <button type="button">Search</button>
-      </div>
-    </nav>
+      <nav className="navbar">
+        <div className="nav-logo">
+          {' '}
+          <img className="logo" src={mest_logo} alt="logo" />
+        </div>
+        <ul className="nav-links">
+          <li>MEST CLASS OF 2023</li>
+        </ul>
+        <div className="search-bar">
+          <input type="text" placeholder="Search..." />
+          <button type="button">Search</button>
+        </div>
+      </nav>
 
-    <div className="list-container">
+      <div className="list-container">
         {dummyuserdetails.map((user, index) => (
-          <div key={index} onClick={() => handleUserClick(user)} className="user-list-item">
-            
+          <div
+            key={index}
+            onClick={() => handleUserClick(user)}
+            className="user-list-item"
+          >
             <img src={user.imageurl} alt="Profile" />
             <p>Name : {user.username}</p>
             <p>Country: {user.nationality}</p>
@@ -75,9 +79,7 @@ function HelloWorld() {
         ))}
       </div>
 
-      
       <div>
-       
         <div>
           <span>
             <input
@@ -99,16 +101,12 @@ function HelloWorld() {
 
         {UserDataIsVisible && (
           <div>
-          
-              <div className="detailed_container">
-                <button className="back_button"> Back</button>
-                <img src={selectedUser.imageurl} alt="Profile" />
-                <p> Name {selectedUser.fullname}</p>
-                <p>{selectedUser.nationality}</p>
-              </div>
-         
-
-           
+            <div className="detailed_container">
+              <button className="back_button"> Back</button>
+              <img src={selectedUser.imageurl} alt="Profile" />
+              <p> Name {selectedUser.fullname}</p>
+              <p>{selectedUser.nationality}</p>
+            </div>
           </div>
         )}
       </div>
