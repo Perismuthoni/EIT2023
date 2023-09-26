@@ -48,6 +48,7 @@ function HelloWorld() {
     setUserDataIsVisible(true);
     setSelectedUser(user);
   };
+  handleexit
 
   return (
     <div>
@@ -87,7 +88,7 @@ function HelloWorld() {
         {UserDataIsVisible && (
           <div>
             <div className="detailed_container">
-              <button className="back_button"> Back</button>
+              <button className="back_button" onClick={handleexit} > Back</button>
               <img src={selectedUser.imageurl} alt="Profile" />
               <p> Name {selectedUser.fullname}</p>
               <p>{selectedUser.nationality}</p>
