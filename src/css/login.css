@@ -1,0 +1,46 @@
+.login{
+    width: 100vw;
+    height: 100vh; /* This makes the container full viewport height */
+    display: flex;
+    justify-content: center; /* Horizontally center items */
+    align-items: center; /* Vertically center items */
+    text-align: center; /* Center text within the container */
+}
+.login-container {
+    width: 500px;
+    margin: 0 auto;
+}
+.login-title{
+    font-size: 20px; 
+    font-family: Inter; 
+    font-weight: 700;
+    text-align: left;
+    padding-left: 30%;
+     /* word-wrap: break-word; */
+}
+input[type="text"],
+        input[type="password"] {
+            width: 70%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 60px;
+            background-color: #D9D9D9;
+        }
+        input[type="submit"] {
+            width: 130px;
+            padding: 10px;
+            background-color: #14BCB2;
+            color: black;
+            border: none;
+            border-radius: 60px;
+            cursor: pointer;
+            right: 0px;
+        }
+        input[type="submit"]:hover {
+            background-color: #14BCB2;
+        }
+    .login{
+        text-align: right;
+    padding-right: 20%; 
+    }
