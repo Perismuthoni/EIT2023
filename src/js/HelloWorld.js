@@ -48,6 +48,10 @@ function HelloWorld() {
     setUserDataIsVisible(true);
     setSelectedUser(user);
   };
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
 
   return (
     <div>
@@ -87,7 +91,11 @@ function HelloWorld() {
         {UserDataIsVisible && (
           <div>
             <div className="detailed_container">
+<<<<<<< Updated upstream
               <button className="back_button"> Back</button>
+=======
+              {/* <button className="back_button" onClick={handleexit} > Back</button> */}
+>>>>>>> Stashed changes
               <img src={selectedUser.imageurl} alt="Profile" />
               <p> Name {selectedUser.fullname}</p>
               <p>{selectedUser.nationality}</p>
