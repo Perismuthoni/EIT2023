@@ -118,26 +118,107 @@ font-weight: 400;
  
 
  
-  .eit_image{
-    border: 2px solid;
-    border-radius: 50%;
-    height: 150px; 
-    object-fit: cover; 
-    margin: 0 auto; 
-    display: block;
-  }
-  
+
 
 
 
   .detailed_container{
-    position: fixed;
-    top: 30px;
+    position: absolute;
+    display: flex;
+    flex: 1; 
+    top: 10%;
     padding: 10% ;
-    width:90vw;
-    min-height :400px;
+    margin: 30px;
+    width:75vw;
+    min-height :300px;
     height:max-content;
-    background-color: aqua;
+    background-color: whitesmoke;
+    border-radius: 20px;
+    scroll-behavior: smooth;
+  }
+
+
+  .column-left {
+    flex: 0 0 30%;
+    padding: 20px; 
+    width:30%;
+    justify-content: center; 
+    align-items: center; 
+    text-align: center; 
+  }
+
+
+  .eit_image{
+    border: 10px solid;
+    border-radius: 50%; /* Create a rounded border for the image (for a circular appearance) */
+    width: 150px; /* Adjust the image width as needed */
+    height: 150px; /* Adjust the image height as needed */
+    object-fit: cover; /* Ensure the image covers the entire container */
+    margin: 0 auto; /* Center the image horizontally */
+    display: block;
+  }
+
+    
+  .column-right {
+    flex: 1; 
+    padding: 20px; 
+    width:60%;
+    margin: 5px;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    text-align: center; /* Center horizontally */
+
+    
+  }
+  .column-right h3{
+    align-self :left;
+    text-align: left;
+    margin-left: 7%;
+    padding-left:7%;
+  }
+
+  .skills button{
+    padding: 2px;
+    margin: 20px;
+    min-width:80px;
+    border-radius : 10px;
+    border: 1px solid aqua;
+  }
+
+  .Role button{
+    padding: 2px;
+    margin: 20px;
+    min-width:80px;
+    border-radius : 10px;
+    border: 1px solid aqua;
+  }
+  .Teachable_skills button{
+    padding: 2px;
+    margin: 20px;
+    min-width:80px;
+    border-radius : 10px;
+    border: 1px solid aqua;
+  }
+  .exit_button{
+    padding: 2px;
+    margin: 20px;
+    min-width:60px;
+    border-radius : 10px;
+    border: 1px solid aqua;
+    background:aqua;
+    color:black;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+  }
+  .exit_icon{
+    font-weight: bold;
+    size: 20px;
+    position: absolute;
+  top: 1%;
+  right: 1%;
+  font-weight: bold;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
   }
  
   

@@ -2,7 +2,7 @@
     display: flex;
   }
   
-  .column-left {
+  .column-left1 {
     flex: 0 0 30%;
     background-color: #f0f0f0; 
     padding: 20px; 
@@ -11,16 +11,7 @@
     align-items: center; 
     text-align: center; 
   }
-  
-  .column-right {
-    flex: 1; 
-    padding: 20px; 
-    width:70%;
-    margin: 5px;
-    justify-content: center; /* Center horizontally */
-    align-items: center; /* Center vertically */
-    text-align: center; /* Center horizontally */
-  }
+
   .eit_image{
     border: 2px solid;
     border-radius: 50%; /* Create a rounded border for the image (for a circular appearance) */
@@ -29,4 +20,33 @@
     object-fit: cover; /* Ensure the image covers the entire container */
     margin: 0 auto; /* Center the image horizontally */
     display: block;
+  }
+
+    
+  .column-right {
+    flex: 1; 
+    padding: 20px; 
+    width:70%;
+    margin: 5px;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    text-align: center; /* Center horizontally */
+
+    
+  }
+
+  .skills button{
+    padding: 2px;
+    margin: 20px;
+   
+  
+  }
+
+  .Role button{
+    padding: 2px;
+    margin: 20px;
+  }
+  .Teachable_skills button{
+    padding: 2px;
+    margin: 20px;
   }
