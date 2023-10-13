@@ -2,8 +2,9 @@ import React, { useEffect, useState } from 'react';
 
 import '../css/home.css';
 
-
 import mest_logo from '../images/mest_logo.png';
+import gmail from '../images/gmailicon.png';
+import whatsapp from '../images/whatsappicon.jpeg';
 
 function LandingPage() {
   // const [loggedInUser, setLoggedInUser] = useState(null);
@@ -13,70 +14,73 @@ function LandingPage() {
   //   setLoggedInUser(user);
   //   console.log('Authenticated user:', user);
   // };
-  
 
+  const [UserDataIsVisible, setUserDataIsVisible] = useState(false);
+  const [selectedUser, setSelectedUser] = useState('');
+  const [selectedUserDetails, setSelectedUserDetails] = useState(null);
+  const [inputValue, setInputValue] = useState('');
+  const [userDetails, setUserDetails] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
-
-  const userdetails = [
+  const userdetailss = [
     {
       username: 'PERIS',
       fullname: 'PERIS MUTHONI MURIUKI',
       imageurl: '../images/taarif.jpeg',
       nationality: 'Kenyan',
-      skills: ["HTML", "CSS", "JavaScript", "React", "Node.js", "Python"],
-      roles: ["CEO", "CTO", "CPO", "NONE", "OTHER", "ANY"],
-      tskills: ["JAVA", "PITCHING", "JavaScript", "Angular", "Java", "Spring"],
+      skills: ['HTML', 'CSS', 'JavaScript', 'React', 'Node.js', 'Python'],
+      roles: ['CEO', 'CTO', 'CPO', 'NONE', 'OTHER', 'ANY'],
+      tskills: ['JAVA', 'PITCHING', 'JavaScript', 'Angular', 'Java', 'Spring'],
     },
     {
       username: 'ROY',
       fullname: 'ROY  Junior Ricardo MOHUBU ',
       imageurl: '../images/complaint.jpeg',
       nationality: 'Botswana',
-      skills: ["HTML", "CSS", "JavaScript", "React", "Node.js", "Python"],
-      roles: ["HTML", "CSS", "JavaScript", "Angular", "Java", "Spring"],
-      tskills: ["HTML", "CSS", "JavaScript", "Angular", "Java", "Spring"],
+      skills: ['HTML', 'CSS', 'JavaScript', 'React', 'Node.js', 'Python'],
+      roles: ['HTML', 'CSS', 'JavaScript', 'Angular', 'Java', 'Spring'],
+      tskills: ['HTML', 'CSS', 'JavaScript', 'Angular', 'Java', 'Spring'],
     },
     {
       username: 'RAWK',
       fullname: 'Rawk Akanni',
       imageurl: '../images/mest_logo.png',
       nationality: 'Kenyan',
-      skills: ["HTML", "CSS", "JavaScript", "React", "Node.js", "Python"],
-      roles: ["HTML", "CSS", "JavaScript", "Angular", "Java", "Spring"],
-      tskills: ["HTML", "CSS", "JavaScript", "Angular", "Java", "Spring"],
+      skills: ['HTML', 'CSS', 'JavaScript', 'React', 'Node.js', 'Python'],
+      roles: ['HTML', 'CSS', 'JavaScript', 'Angular', 'Java', 'Spring'],
+      tskills: ['HTML', 'CSS', 'JavaScript', 'Angular', 'Java', 'Spring'],
     },
     {
       username: 'XARRI',
       fullname: 'Randy George',
       imageurl: '../images/taarif.jpeg',
       nationality: 'Kenyan',
-      skills: ["HTML", "CSS", "JavaScript", "React", "Node.js", "Python"],
-      roles: ["HTML", "CSS", "JavaScript", "Angular", "Java", "Spring"],
-      tskills: ["HTML", "CSS", "JavaScript", "Angular", "Java", "Spring"],
+      skills: ['HTML', 'CSS', 'JavaScript', 'React', 'Node.js', 'Python'],
+      roles: ['HTML', 'CSS', 'JavaScript', 'Angular', 'Java', 'Spring'],
+      tskills: ['HTML', 'CSS', 'JavaScript', 'Angular', 'Java', 'Spring'],
     },
     {
       username: 'COURTNEY',
       fullname: 'Courtney Letsa',
       imageurl: '../images/complaint.jpeg',
       nationality: 'Kenyan',
-      skills: ["HTML", "CSS", "JavaScript", "React", "Node.js", "Python"],
-      roles: ["HTML", "CSS", "JavaScript", "Angular", "Java", "Spring"],
-      tskills: ["HTML", "CSS", "JavaScript", "Angular", "Java", "Spring"],
+      skills: ['HTML', 'CSS', 'JavaScript', 'React', 'Node.js', 'Python'],
+      roles: ['HTML', 'CSS', 'JavaScript', 'Angular', 'Java', 'Spring'],
+      tskills: ['HTML', 'CSS', 'JavaScript', 'Angular', 'Java', 'Spring'],
     },
     {
       username: 'DELIGHT',
       fullname: 'DELIGHT DAVID ',
       imageurl: '../images/mest_logo.png',
       nationality: 'Botswana',
-      skills: ["HTML", "CSS", "JavaScript", "React", "Node.js", "Python"],
-      roles: ["HTML", "CSS", "JavaScript", "Angular", "Java", "Spring"],
-      tskills: ["HTML", "CSS", "JavaScript", "Angular", "Java", "Spring"],
+      skills: ['HTML', 'CSS', 'JavaScript', 'React', 'Node.js', 'Python'],
+      roles: ['HTML', 'CSS', 'JavaScript', 'Angular', 'Java', 'Spring'],
+      tskills: ['HTML', 'CSS', 'JavaScript', 'Angular', 'Java', 'Spring'],
     },
   ];
 
   useEffect(() => {
-    // Replace 'your_api_endpoint_here' with the actual API endpoint from your server
-    fetch('/your_api_endpoint_here')
+    fetch('https://mest2024.onrender.com/eits')
       .then((response) => {
         if (!response.ok) {
           throw new Error('Network response was not ok');
@@ -84,7 +88,18 @@ function LandingPage() {
         return response.json();
       })
       .then((data) => {
-        setUserData(data);
+        const filteredData = data.map((eit) => ({
+          username: eit.username,
+          email: eit.email,
+          gender: eit.gender,
+          country: eit.country,
+          skills: eit.skills,
+          roles: eit.roles,
+          tskills: eit.tskills,
+          image_url: eit.image_url,
+        }));
+
+        setUserDetails(filteredData);
         setIsLoading(false);
       })
       .catch((error) => {
@@ -93,19 +108,12 @@ function LandingPage() {
       });
   }, []);
 
-  const [UserDataIsVisible, setUserDataIsVisible] = useState(false);
-  const [selectedUser, setSelectedUser] = useState('');
-  const [selectedUserDetails, setSelectedUserDetails] = useState(null);
-  const [inputValue, setInputValue] = useState('');
-
   const handleInputChange = (event) => {
     setInputValue(event.target.value.trim().toUpperCase());
   };
 
   const handlesearch = () => {
-    const foundUser = userdetails.find(
-      (data) => data.username === inputValue
-    );
+    const foundUser = userDetails.find((data) => data.username === inputValue);
 
     if (foundUser) {
       setUserDataIsVisible(true);
@@ -121,13 +129,10 @@ function LandingPage() {
     setSelectedUser(eit);
   };
 
-
-
   const handleexitClick = (eit) => {
     setUserDataIsVisible(false);
     setSelectedUser(null);
   };
-
 
   return (
     <div className="landing_page">
@@ -155,6 +160,7 @@ function LandingPage() {
         />
         <button type="submit" onClick={handlesearch}>
           {' '}
+          search
         </button>
       </div>
 
@@ -162,25 +168,30 @@ function LandingPage() {
         <span>
           Filter by
           <button>COUNTRY</button>
-          <button>COUNTRY</button>
-          <button>COUNTRY</button>
-          <button>COUNTRY</button>
+          <button>SKILL</button>
+          <button>ROLE</button>
+          <button>NAME</button>
           <button>COUNTRY</button>
         </span>{' '}
       </div>
 
       <div className="list-container">
-        {userdetails.map((eit, index) => (
+        {userDetails.map((eit, index) => (
           <div
             key={index}
             onClick={() => handleUserClick(eit)}
             className="user-list-item"
           >
-            <img className="eit_image" src={eit.imageurl} alt="Profile" />
+            <img
+              className="eit_image"
+             src={`${eit.image_url}`}
+              // src='https://drive.google.com/uc?export=view&id=126xnVgIBi9_gGtf62gIdx9JKpfo7ThQR'
+             alt={`${eit.username}'s Profile`}
+            />
 
             <p>
               {' '}
-              {eit.username} || {eit.nationality}{' '}
+              {eit.username} || {eit.country}{' '}
             </p>
           </div>
         ))}
@@ -190,73 +201,93 @@ function LandingPage() {
         {UserDataIsVisible && (
           <div>
             <div className="detailed_container">
-
               {/* <button className="back_button"> Back</button> */}
               {/* <button className="back_button" onClick={handleexit} > Back</button> */}
 
               <div className="column-left">
-              <img className="eit_image" src={selectedUser.imageurl} alt="Profile" />
-              <p> <h4>   {selectedUser.fullname} </h4> </p>
-              <p>{selectedUser.nationality}</p>
+                <img
+                  className="eit_image"
+                  src={selectedUser.image_url}
+                  alt="Profile"
+                />
+                <p>
+                  {' '}
+                  <h4> {selectedUser.username} </h4>{' '}
+                </p>
+                <p>{selectedUser.country}</p>
 
-       
-              
+                <span> 
+                  <img  
+                  className="whatsapp"
+                  src={whatsapp}
+                  alt="whatsapp" />
 
-                 </div>
-              
+<img  
+                  className="gmail"
+                  src={gmail}
+                  alt="gmail" />
+                 
+                </span>
+              </div>
 
-                 <div className="column-right"> 
+              <div className="column-right">
+                <div className="skills">
+                  <h3>Skills</h3>
+                  {selectedUser.skills
+                    ? selectedUser.skills
+                        .split(',')
+                        .map((skill, skillIndex) => (
+                          <button key={skillIndex}>{skill.trim()}</button>
+                        ))
+                    : 'No Skills Found'}
+                </div>
 
-               
+                <div className="Role">
+                  <h3>Roles</h3>
+                  <div>
+                    {selectedUser.roles
+                      ? selectedUser.roles
+                          .split(',')
+                          .map((role, roleIndex) => (
+                            <button key={roleIndex}>{role.trim()}</button>
+                          ))
+                      : 'No Roles Found'}
+                  </div>
+                </div>
 
-          <div className="skills">
-            <h3>Skills</h3>
-            {selectedUser.skills.map((skill, skillIndex) => (
-            <button key={skillIndex}>{skill}</button>
-          ))}
-          </div>
+                <div className="Teachable_skills">
+                  <h3>Teachable Skills</h3>
+                  <div>
+                    {selectedUser.tskills
+                      ? selectedUser.tskills
+                          .split(',')
+                          .map((tskill, tskillIndex) => (
+                            <button key={tskillIndex}>{tskill.trim()}</button>
+                          ))
+                      : 'No Teachable Skills Found'}
+                  </div>
+                </div>
 
-          <div className="Role">
-            <h3>Roles</h3>
-            <div>
-          {selectedUser.roles.map((role, roleIndex) => (
-            <button key={roleIndex}>{role}</button>
-          ))}
-        </div>
-          </div>
+                <div>
+                  <p>
+                    {' '}
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                    do eiusmod tempor incididunt ut labore et dolore magna
+                    aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                    ullamco laboris nisi ut aliquip ex ea commodo consequat
+                  </p>
+                </div>
 
-          <div className="Teachable_skills">
-            <h3>Teachable Skills</h3>
-            <div>
-          {selectedUser.tskills.map((tskill, tskillIndex) => (
-            <button key={tskillIndex}>{tskill}</button>
-          ))}
-        </div>
-          </div>
+                <button className="exit_button" onClick={handleexitClick}>
+                  {' '}
+                  Exit{' '}
+                </button>
 
-
-         <div>
-          <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-             sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-              Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris 
-              nisi ut aliquip ex ea commodo consequat</p>
-         </div>
-
-         <button className='exit_button'
-           onClick={handleexitClick}> Exit </button>
-
-         <span className='exit_icon' onClick={handleexitClick} >&times;</span>
-
-
-
-                 </div>
-
-
-
-
+                <span className="exit_icon" onClick={handleexitClick}>
+                  &times;
+                </span>
+              </div>
             </div>
-
-
           </div>
         )}
       </div>
