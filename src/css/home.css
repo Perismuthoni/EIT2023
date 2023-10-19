@@ -10,12 +10,11 @@
 
 .navbar {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  justify-content: right;
+  align-items: right;
   background-color: inherit;
   color: Black;
-  padding: 5px 25px;
-  padding-right: 150px;
+  padding: 5px 20px;
 }
 
 .landing_title {
@@ -30,8 +29,16 @@
 .user_icon {
   font-size: 24px;
   font-weight: bold;
+  padding-right:50px ;
 
+}/* styles.css */
+.setting-icon {
+  font-size: 24px;
+  color: #333;
+  cursor: pointer;
+  padding-top: 10px;
 }
+
 
 .logo {
   width: 70px;
@@ -39,6 +46,8 @@
   border-radius: 50%;
 
 }
+
+
 
 .divider {
   margin-bottom: 10px;
@@ -287,3 +296,5 @@
   /* Maintain the aspect ratio */
   margin: 25px;
 }
+
+

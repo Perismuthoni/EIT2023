@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCog } from '@fortawesome/free-solid-svg-icons';
 import '../css/home.css';
 
 import mest_logo from '../images/mest_logo.png';
@@ -137,7 +138,7 @@ function LandingPage() {
   return (
     <div className="landing_page">
       <nav className="navbar">
-        <div className="landing_title">Homepage</div>
+        {/* <div className="landing_title">Akwaba</div> */}
 
         <div className="user-profile-icon">
           <img src="" alt="" />
@@ -147,6 +148,12 @@ function LandingPage() {
         <div className="user_icon">
           <img className="logo" src={mest_logo} alt="logo" />
         </div>
+
+<a href='/profile_edit'> 
+<FontAwesomeIcon icon={faCog} className="setting-icon" />
+   </a>
+
+
       </nav>
 
       <hr className="divider"></hr>
