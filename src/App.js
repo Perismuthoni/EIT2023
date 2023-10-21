@@ -10,7 +10,7 @@ import './App.css';
 import Login from './js/login';
 import LandingPage from './js/landing';
 import LandingPagee from './js/landing';
-import Edit_profile from './js/edit_profile';
+import  EditProfile from './js/edit_profile';
 
 function App() {
   const [user, setUser] = useState(null);
@@ -44,7 +44,7 @@ function App() {
 
        <Route path="/" element={<Login />} />
         <Route path="/landingg" element={<LandingPagee />} /> 
-        <Route path="/profile_edit" element={<Edit_profile />} /> 
+        <Route path="/profile_edit" element={<EditProfile />} /> 
       </Routes>
     </Router>
   );

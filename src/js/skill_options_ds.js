@@ -4,8 +4,10 @@ import Select from 'react-select';
 class skill_options_ds extends Component {
   state = {
     skill_options_ds: [
-        { value: 'option1', label: 'Option 1' },
-        { value: 'option2', label: 'Option 2' },
+        { value: 'option1', label: 'marketing' },
+        { value: 'option2', label: 'front-end ' },
+        { value: 'option3', label: 'backend-end ' },
+        { value: 'option4', label: 'product-management ' },
     ], // Change the name here
   };
 

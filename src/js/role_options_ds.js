@@ -3,9 +3,11 @@ import Select from 'react-select';
 
 class role_options_ds extends Component {
   state = {
-    skill_options_ds: [
-        { value: 'option1', label: 'Option 1' },
-        { value: 'option2', label: 'Option 2' },
+   role_options_ds: [
+        { value: 'option1', label: 'CEO' },
+        { value: 'option2', label: 'CTO' },
+        { value: 'option2', label: 'CFO' },
+        { value: 'option2', label: 'CPO' },
     ], // Change the name here
   };
 
@@ -15,15 +17,15 @@ class role_options_ds extends Component {
   }
 
   render() {
-    const { selectedSkills, onSkillsChange } = this.props;
+    const { selectedRoles, onRolesChange } = this.props;
 
     return (
         <div>
       <Select
         isMulti
-        options={this.state.skill_options_ds} // Update the reference to the state property
-        value={selectedSkills}
-        onChange={onSkillsChange}   
+        options={this.state.role_options_ds} // Update the reference to the state property
+        value={selectedRoles}
+        onChange={onRolesChange}   
         placeholder="What role/roles can you play in a startup?"
       />
 

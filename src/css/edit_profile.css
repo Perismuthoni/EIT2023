@@ -1,17 +1,28 @@
 /* ProfileEditor.css */
 .profile-editor {
   width: 100vw;
-  margin: 0 auto;
-  padding: 20px;
+  margin: 0 ;
   border: 1px solid #ccc;
   border-radius: 5px;
   background-color: #fff;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  display: flex; /* Use a flex container */
+  flex-direction: column; /* Stack content vertically */
+  align-items: center; /* Center content horizontally */
+  justify-content: center; /* Center content vertically */
+
 }
 
 .profile-editor h1 {
   font-size: 24px;
   margin-bottom: 20px;
+}
+.profile-form{
+  padding:10px;
+  flex-direction: column; /* Stack content vertically */
+  align-items: center; /* Center content horizontally */
+  justify-content: center; /* Center content vertically */
+  width: 80%;
 }
 
 .form-group {
@@ -36,13 +47,16 @@ textarea {
 }
 
 button[type="submit"] {
-  background-color: #007bff;
+  background-color: mediumaquamarine;
   color: #fff;
-  padding: 10px 20px;
+  padding: 10px 60px;
   border: none;
-  border-radius: 4px;
+  border-radius: 30px;
   cursor: pointer;
 }
-
-/* Add more styling as needed */
+.form-submit{
+ align-items: center;
+ justify-content: center;
+ text-align: center;
+}
 
