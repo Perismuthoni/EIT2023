@@ -3,18 +3,19 @@ import Select from 'react-select';
 
 class tskill_options_ds extends Component {
   state = {
-    tskill_options_ds: [
-        { value: 'option1', label: 'Java ' },
-        { value: 'option2', label: 'HTML ' },
-        { value: 'option3', label: 'Canva ' },
-        { value: 'option4', label: 'Adobe XD ' },
-
-    ], // Change the name here
+    tskill_options_ds: [],
   };
 
-  // Fetch skills from a remote store and set them in the state
   componentDidMount() {
-    // Fetch skills and update this.state.skill_options_ds
+    fetch('https://mest2024.onrender.com/tskillz')
+      .then(response => response.json())
+      .then(data => {
+       
+        const tskillsOptions = data.map(role => ({ value: role.ts_name, label: role.ts_name }));
+  
+        this.setState({ tskill_options_ds: tskillsOptions });
+      })
+      .catch(error => console.error('Error fetching roles:', error));
   }
 
   render() {

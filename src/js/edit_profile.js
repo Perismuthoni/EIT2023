@@ -3,21 +3,19 @@ import ImageUpload from './image_upload';
 import SkillDropdown from './skill_options_ds';
 import RoleDropdown from './role_options_ds';
 import TskillDropdown from './tskill_options_ds';
-
 import '../css/edit_profile.css';
-//import mest_logo from '../images/mest_logo.png';
 
 function editProfile() {
   const [formData, setFormData] = useState({
     username: '',
-    full_name:'',
+    full_name: '',
     country: '',
-    whatsapp_no:'',
-    secondary_mobile:'',
+    whatsapp_no: '',
+    secondary_mobile: '',
     funfact: '',
     skills: [],
     roles: [],
-    tskills: []
+    tskills: [],
   });
 
   const [countryOptions, setCountryOptions] = useState([
@@ -76,9 +74,6 @@ function editProfile() {
     { id: '53', name: 'Zimbabwe' },
     // Add more countries as needed
   ]);
-  
-
-
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -109,87 +104,72 @@ function editProfile() {
     });
   };
 
-  
-
-  
-
-
-
   return (
     <div className="profile-editor">
     
-<div> </div>
 
-      <ImageUpload />
+      <form className="profile-form">
 
+        <div className="container-bio">
+          <div className="column-usr-image">
+            {' '}
+            <ImageUpload />{' '}
+          </div>
+          <div className="column-bio">
+            <input
+              type="text"
+              name="username"
+              value={formData.username}
+              onChange={handleInputChange}
+              placeholder="please input your preferred name"
+            />
 
-      <form className='profile-form' >
-        <div className="form-group">
-          <label>Preferred name</label>
-          <input
-            type="text"
-            name= "username"
-            value={formData.username}
-            onChange={handleInputChange}
-            placeholder="please input your preferred name"
-          />
-        </div>
+            <input
+              type="text"
+              name="full_name"
+              value={formData.full_name}
+              onChange={handleInputChange}
+              placeholder="please input your full name"
+            />
 
-        <div className="form-group">
-          <label>Fullname:</label>
-          <input
-            type="text"
-            name="full_name"
-            value={formData.full_name}
-            onChange={handleInputChange}
-            placeholder="please input your full name"
-          />
-        </div>
+            <select
+              name="country"
+              value={formData.country}
+              onChange={handleInputChange}
+            >
+              <option value="">Select a country</option>
+              {countryOptions.map((country) => (
+                <option key={country.id} value={country.id}>
+                  {country.name}
+                </option>
+              ))}
+            </select> <br/>
 
-        <div className="form-group">
-          <label>Country:</label>
-          <select
-            name="country"
-            value={formData.country}
-            onChange={handleInputChange}
-          >
-       <option value="">Select a country</option>
-    {countryOptions.map((country) => (
-      <option key={country.id} value={country.id}>
-        {country.name}
-      </option>
-    ))}
+            <br/>
+           
 
-          </select>
-        </div>
-
-
-        <div className="form-group">
-          <label>Primary contact no</label>
-          <input
+            <input
             type="text"
             name="whatsapp_no"
             value={formData.whatsapp_no}
             onChange={handleInputChange}
-            placeholder="Preferrable your whatsapp number"
+            placeholder="Primary contact no"
           />
-        </div>
 
-
-        <div className="form-group">
-          <label>Secondary contact no</label>
-          <input
+<input
             type="text"
             name="secondary_mobile"
             value={formData.secondary_mobile}
             onChange={handleInputChange}
-            placeholder="Any other number(optional)"
+            placeholder="other number(optional)"
           />
+
+          </div>
         </div>
 
+        <br/>
+      
 
-
-        
         <div className="form-group">
           <label>Fun Fact:</label>
           <textarea
@@ -199,13 +179,11 @@ function editProfile() {
           />
         </div>
 
-
-        <div className="form-group"> 
+        <div className="form-group">
           <SkillDropdown
             selectedSkills={formData.skills}
             onSkillsChange={handleSkillsChange}
           />
-          
         </div>
 
         <div className="form-group">
@@ -217,17 +195,16 @@ function editProfile() {
 
         <div className="form-group">
           <TskillDropdown
-           selectedTskills ={formData.tskills}
+            selectedTskills={formData.tskills}
             onTskillsChange={handleTskillsChange}
           />
         </div>
 
-<div className="form-submit">
-<button c type="submit">Save</button>
-</div>
-
-        
-
+        <div className="form-submit">
+          <button c type="submit">
+            Save
+          </button>
+        </div>
       </form>
     </div>
   );

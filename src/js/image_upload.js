@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import Dropzone from 'react-dropzone';
-import '../css/image_upload.css'; // Import the CSS file
+import '../css/image_upload.css';
 import profile_icon from '../images/profileimg.png';
 
+
 class ImageUpload extends Component {
-  // ... (Previous code)
+
 
   render() {
     return (
@@ -15,9 +16,10 @@ class ImageUpload extends Component {
               <input {...getInputProps()} />
 
               <div className="round-icon">
-                <img src={profile_icon} />
+                <img src={profile_icon} alt='profile_picture'/>
                 <i className="fas fa-camera"></i>
               </div>
+              <br />
               <button>Change Picture </button>
 
               <button>Remove Picture </button>

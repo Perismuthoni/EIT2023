@@ -2,18 +2,21 @@ import React, { Component } from 'react';
 import Select from 'react-select';
 
 class role_options_ds extends Component {
+
   state = {
-   role_options_ds: [
-        { value: 'option1', label: 'CEO' },
-        { value: 'option2', label: 'CTO' },
-        { value: 'option2', label: 'CFO' },
-        { value: 'option2', label: 'CPO' },
-    ], // Change the name here
+    role_options_ds: [],
   };
 
-  // Fetch skills from a remote store and set them in the state
   componentDidMount() {
-    // Fetch skills and update this.state.skill_options_ds
+    fetch('https://mest2024.onrender.com/roles')
+      .then(response => response.json())
+      .then(data => {
+       
+        const roleOptions = data.map(role => ({ value: role.r_name, label: role.r_name }));
+  
+        this.setState({ role_options_ds: roleOptions });
+      })
+      .catch(error => console.error('Error fetching roles:', error));
   }
 
   render() {

@@ -2,20 +2,24 @@ import React, { Component } from 'react';
 import Select from 'react-select';
 
 class skill_options_ds extends Component {
+
+
   state = {
-    skill_options_ds: [
-        { value: 'option1', label: 'marketing' },
-        { value: 'option2', label: 'front-end ' },
-        { value: 'option3', label: 'backend-end ' },
-        { value: 'option4', label: 'product-management ' },
-    ], // Change the name here
+    skill_options_ds: [],
   };
 
-  // Fetch skills from a remote store and set them in the state
   componentDidMount() {
-    // Fetch skills and update this.state.skill_options_ds
+    fetch('https://mest2024.onrender.com/skills')
+      .then(response => response.json())
+      .then(data => {
+       
+        const skillOptions = data.map(skill => ({ value: skill.sname, label: skill.sname }));
+  
+        this.setState({ skill_options_ds: skillOptions });
+      })
+      .catch(error => console.error('Error fetching skills:', error));
   }
-
+ 
   render() {
     const { selectedSkills, onSkillsChange } = this.props;
 

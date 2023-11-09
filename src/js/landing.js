@@ -98,6 +98,8 @@ function LandingPage() {
           roles: eit.roles,
           tskills: eit.tskills,
           image_url: eit.image_url,
+          funfact: eit.funfact,
+          whatsapp_no: eit.whatsapp_no,
         }));
 
         setUserDetails(filteredData);
@@ -149,11 +151,9 @@ function LandingPage() {
           <img className="logo" src={mest_logo} alt="logo" />
         </div>
 
-<a href='/profile_edit'> 
-<FontAwesomeIcon icon={faCog} className="setting-icon" />
-   </a>
-
-
+        <a href="/profile_edit">
+          <FontAwesomeIcon icon={faCog} className="setting-icon" />
+        </a>
       </nav>
 
       <hr className="divider"></hr>
@@ -191,9 +191,9 @@ function LandingPage() {
           >
             <img
               className="eit_image"
-             src={`${eit.image_url}`}
+              src={`${eit.image_url}`}
               // src='https://drive.google.com/uc?export=view&id=126xnVgIBi9_gGtf62gIdx9JKpfo7ThQR'
-             alt={`${eit.username}'s Profile`}
+              alt={`${eit.username}'s Profile`}
             />
 
             <p>
@@ -223,17 +223,18 @@ function LandingPage() {
                 </p>
                 <p>{selectedUser.country}</p>
 
-                <span> 
-                  <img  
-                  className="whatsapp"
-                  src={whatsapp}
-                  alt="whatsapp" />
+                <span>
+                  {/* <a href={`https://web.whatsapp.com/send?phone=${selectedUser.whatsapp_no}`} target="_blank"> */}
+                  <a
+                    href={`https://web.whatsapp.com/send?phone=${selectedUser.whatsapp_no}`}
+                    target="_blank" rel="noopener noreferrer"
+                  >
+                    <img className="whatsapp" src={whatsapp} alt="whatsapp" />
+                  </a>
 
-<img  
-                  className="gmail"
-                  src={gmail}
-                  alt="gmail" />
-                 
+                  <a href={`mailto:${selectedUser.email}`} target="_blank" rel="noopener noreferrer" >
+                    <img className="gmail" src={gmail} alt="gmail" />
+                  </a>
                 </span>
               </div>
 
@@ -274,21 +275,16 @@ function LandingPage() {
                       : 'No Teachable Skills Found'}
                   </div>
                 </div>
-
+                <br />
                 <div>
                   <p>
-                    {' '}
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                    do eiusmod tempor incididunt ut labore et dolore magna
-                    aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                    ullamco laboris nisi ut aliquip ex ea commodo consequat
+                    {selectedUser.funfact ? (
+                      <span>{selectedUser.funfact}</span>
+                    ) : (
+                      <span>{selectedUser.username} is no fun</span>
+                    )}
                   </p>
                 </div>
-
-                <button className="exit_button" onClick={handleexitClick}>
-                  {' '}
-                  Exit{' '}
-                </button>
 
                 <span className="exit_icon" onClick={handleexitClick}>
                   &times;
